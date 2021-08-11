@@ -1,0 +1,4 @@
+# docker run -it --name c4 --network host doc-sec:v1
+when we run container with --network host then container share the host network namespace with it, this results in all interface 
+of host will be visible in container 
+

@@ -1,0 +1,21 @@
+# this is per pod policy to allow or deny any traffic
+---
+kind: NetworkPolicy
+apiVersion: networking.k8s.io/v1
+metadata:
+  name: database-policy
+  namespace: yaobank
+spec:
+  podSelector:
+    matchLabels:
+      app: database
+  ingress:
+  - from:
+    - podSelector:
+        matchLabels:
+          app: summary
+    ports:
+      - protocol: TCP
+        port: 2379
+  egress:
+    - to: []
