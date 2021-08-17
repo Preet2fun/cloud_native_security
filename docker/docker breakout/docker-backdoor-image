@@ -1,0 +1,10 @@
+below are the steps we can perform to backdoor docker image to take control of host machine
+
+1. The attacker explores the AWS environment and discovers they are able to list ECR repositories using compromised AWS credentials.
+2. The attacker finds that their target uses an NGINX Docker image and pulls that Docker image from ECR.
+3. The attacker decides to create a reverse shell backdoor in the pulled NGINX Docker image.
+This module generates a Dockerfile on the fly and builds new a Docker image from that file.
+4. Finally, the attacker pushes the backdoored Docker image to ECR.
+
+https://rhinosecuritylabs.com/aws/cloud-container-attack-tool/
+

