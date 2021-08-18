@@ -91,3 +91,11 @@ root@50ea420094f1:~# mkdir test
 mkdir: cannot create directory 'test': Operation not permitted
 root@50ea420094f1:~# 
 
+7) DCT - Docker content trust 
+ability to use digital signatures for data sent to and received from remote engine registries
+
+enable DCT using below command
+export DOCKER_CONTENT_TRUST=1
+
+https://docs.docker.com/engine/security/trust/
+

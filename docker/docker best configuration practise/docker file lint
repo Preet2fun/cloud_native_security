@@ -1,0 +1,15 @@
+1) dockerfilelint is an node module that analyzes a Dockerfile and looks for common traps, 
+mistakes and helps enforce best practices.
+
+https://github.com/replicatedhq/dockerfilelint
+
+[root@server1 dockerize_app]# dockerfilelint dockerfile
+
+File:   dockerfile
+Issues: 1
+
+Line 3: FROM nginx:latest
+Issue  Category      Title                 Description
+    1  Clarity       Base Image Latest     Base images should not use the latest tag.
+                     Tag
+
